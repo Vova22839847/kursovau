@@ -1,0 +1,181 @@
+<html> 
+<head> 
+Параметры страницы 
+</head> 
+<body> 
+<MARQUEE BEHAVIOR=slide> 
+Этот текст остановится у края страницы 
+</MARQUEE> 
+ 
+<MARQUEE BGCOLOR=#0000FF>
+
+<H2>Маркированный список</H2> 
+<ul type=’circle’> 
+<li>Яблоко</li> 
+<li type=’disk’>Груша</li> 
+<li>Слива</li> 
+<li type=’square’>Вишня</li> 
+<li>Черешня</li> 
+</ul>
+<ol> 
+<li>Нумерованный</li> 
+<ol> 
+<li>Пункт 1</li> 
+<li>Пункт 2</li> 
+<li>Пункт 3</li> 
+</ol> 
+<li>Маркированный</li> 
+<ul> 
+<li>Первый вариант</li> 
+<li>Второй вариант</li> 
+<li>Третий вариант</li> 
+</ul> 
+</ol> 
+<html> 
+<head> 
+<title>разметка страницы при помощи таблицы</title> 
+</head> 
+
+<table width='100%' height='100%' valign='top'> 
+<tr height='10%' bgcolor='silver'> 
+<td colspan='3'>&nbsp</td> 
+</tr> 
+<tr height='80%'> 
+<td width='15%' bgcolor='green'>&nbsp</td> 
+<td bgcolor='yellow'>&nbsp</td> 
+<td width='15%' bgcolor='green'>&nbsp</td> 
+</tr> 
+<tr bgcolor='silver'> 
+<td colspan='3'>&nbsp</td> 
+</tr> 
+
+</body> 
+</html>
+ <html> 
+<head> 
+<title>Панель навигации</title> 
+</head> 
+  <body> 
+<ul> 
+<li> <a href=”1.html” target=”f2”>Пункт1</a></li> 
+<li><a href=”2.html” target=”f2”> Пункт2</a></li> 
+</ul> 
+</body> 
+</html> 
+ <IFRAME>текст</IFRAME>
+ <html> 
+<head> 
+<title>Плавающие фреймы</title> 
+</head> 
+<body> 
+Этот фрейм выровнен по центру 
+<iframe name=’f1’ src=’index.html’ height=’200’ width=’200’ scrolling=’yes’ 
+align=’center’> 
+В этом месте должен быть плавающий фрейм 
+</iframe> 
+Во фрейме будет отображаться моя страница 
+</body> 
+</html>
+ <INPUT TYPE=’тип’ NAME=’имя’>
+ <INPUT TYPE=’text’ NAME=’имя’>
+ <INPUT TYPE=’password’>
+ <INPUT TYPE=’file’> 
+ <form> 
+<!- - поля ввода - -> 
+<input type =’text’ name=’first_name’ size=’30’>Имя<br> 
+<input type =’text’ name=’last_name’ size=’30’>Фамилия<br> 
+<input type =’text’ name=’birthday’ size=’5’ maxlength=’4’>Год рождения<br> 
+<-- Поле пароля --> 
+Введите 
+пароль 
+<input 
+type=’password’ 
+name=’pass’ 
+maxlength=’10’><br> 
+<-- Поле загрузки файла --> 
+Укажите путь к файлу: <br><input type=’file’ size=’17’> 
+</form>
+<form> 
+<-- Группа переключателей --> 
+<h2>Цвет фона страницы</h2> 
+<br><input type=’radio’ name=’color’ value=’white’ checked >белый 
+<br><input type=’radio’ name=’color’ value=’yellow’> желтый 
+<br><input type=’radio’ name=’color’ value=’green’ >Зеленый 
+<-- Группа Флажков --> 
+<h2>Выберите фрукт</h2> 
+<input type=’checkbox’ name=’fruit’ value=’pear’ checked >Груша 
+<br><input type=’checkbox’ name=’ fruit1’ value=’peach’ >Персик
+ <br><input type=’checkbox’ name=’fruit2’ value=’apple’ >Яблоко<br> 
+</form> 
+ <FORM> 
+<TABLE> 
+ <CAPTION>Выберите страну:</CAPTION> 
+<TR><TD VALIGN=’top’> 
+<!—Раскрывающийся список --> 
+<SELECT NAME=’country’ SIZE=’1’> 
+<OPTION VALUE=’Белоруссия’>Белоруссия 
+<OPTION VALUE=’Казахстан’>Казахстан 
+<OPTION VALUE=’Россия’>Россия 
+<OPTION VALUE=’Украина’>Украина 
+</SELECT> 
+</TD> 
+<-- Обычный список --> 
+<TD VALIGN=’top’> 
+<SELECT NAME=’Countries’ size=’3’ MULTIPLE> 
+<OPTION VALUE=’Белоруссия’>Белоруссия 
+<OPTION VALUE=’Казахстан’>Казахстан 
+<OPTION VALUE=’Россия’ SELECTED>Россия 
+<OPTION VALUE=’Украина’>Украина 
+</SELECT> 
+</TD></TR></TABLE> 
+</FORM>
+<form> 
+<button title=’Просмотр версии обозревателя’ accesskey=’Е’>Версия</button> 
+<br> 
+<-- Поле ввода --> 
+<input type=’text’ size=40><br><br> 
+<-- Кнопки подачи запроса и сброса --> 
+<input type=’submit’ DISABLED> 
+<input type=’reset’> 
+</form> 
+ <form name=’panel instrumentov’> 
+<table cellpadding=’0’ celspacing=’0’> 
+<!-- Создаем панель инструментов --> 
+<tr><td> 
+<button title=’Создать файл’><img src=’new.gif’ width=’300%’></button><br> 
+</td><td> 
+<button title=’Открыть’><img src=’open.gif’ width=’300%’></button><br> 
+</td><td> 
+<button title=’Сохранить’><img src=’save.gif’ width=’300%’></button><br> 
+</td><td> 
+<button title=’Печать’><img src=’print.gif’ width=’300%’></button><br> 
+</td> 
+</tr> 
+</table> 
+</form>
+ <Form name=’text’> 
+<p>Оставьте свое сообщение в следующем окне и нажмите на кнопке для его 
+отправления</p> 
+<textarea name=’koment’ rows=’15’ cols=’30’ wrap=’off’>Введите ваше сообще
+ние сдесь</textarea><br> 
+<p><input type=’submit’></p> 
+<p><input type=’reset’></p> 
+</form>
+ <link rel="stylesheet" type="text/css" href="style.css">
+ Имя тэга { свойство:значение; 
+свойство:значение; 
+… 
+} 
+ .Имя класса {свойство:значение; 
+свойство:значение; 
+… 
+}
+ .main {Width:100px; 
+Height:100px; 
+Color:red; 
+Border-style: solid; 
+Border-color:blue;} 
+ BODY { 
+background-image : url(ris1.png) ; 
+background-repeat: repeat-x; 
+}
