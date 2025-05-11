@@ -1,12 +1,441 @@
+<!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8"> 
-<script src="jaja.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Изучаем HTML: учебник и викторина</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 2rem 0;
+      text-align: center;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    h2 {
+      color: #2c3e50;
+      border-bottom: 2px solid #e74c3c;
+      padding-bottom: 5px;
+    }
+    h3 {
+      color: #2c3e50;
+    }
+    .tutorial-section {
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      margin-bottom: 40px;
+    }
+    code {
+      background: #f0f0f0;
+      padding: 2px 5px;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+    }
+    pre {
+      background: #2c3e50;
+      color: #ecf0f1;
+      padding: 15px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    .note {
+      background: #fffde7;
+      padding: 15px;
+      border-left: 4px solid #ffd600;
+      margin: 20px 0;
+    }
+    .quiz-section {
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .question {
+      margin-bottom: 30px;
+      display: none;
+    }
+    .question.active {
+      display: block;
+    }
+    .options {
+      margin: 20px 0;
+    }
+    .option {
+      padding: 12px 15px;
+      margin: 10px 0;
+      background: #ecf0f1;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .option:hover {
+      background: #d6eaf8;
+    }
+    .option.correct {
+      background: #a3e4d7;
+    }
+    .option.incorrect {
+      background: #f5b7b1;
+    }
+    .explanation {
+      margin-top: 15px;
+      padding: 10px;
+      background: #f9e79f;
+      border-radius: 5px;
+      display: none;
+    }
+    button {
+      background: #e74c3c;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: all 0.3s;
+      margin: 10px 0;
+    }
+    button:hover {
+      background: #c0392b;
+    }
+    .result {
+      text-align: center;
+      font-size: 1.5rem;
+      margin: 30px 0;
+      padding: 20px;
+      background: #2c3e50;
+      color: white;
+      border-radius: 8px;
+      display: none;
+    }
+    .progress {
+      height: 5px;
+      background: #ecf0f1;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    .progress-bar {
+      height: 100%;
+      background: #e74c3c;
+      width: 0%;
+      transition: width 0.3s;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+    th, td {
+      padding: 12px;
+      text-align: left;
+    }
+    th {
+      background-color: #2c3e50;
+      color: white;
+    }
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+  </style>
 </head>
 <body>
- <p id="demo"></p>
- <p id="demo1"></p>
- <p id="demo2"></p>
- <p id="demo3"></p>
+  <header>
+    <div class="container">
+      <h1>Основы HTML</h1>
+      <p>Полное руководство с интерактивной викториной</p>
+    </div>
+  </header>
+
+  <div class="container">
+    <div id="tutorial-section" class="tutorial-section">
+      <h2>Что такое HTML?</h2>
+      <p>HTML (HyperText Markup Language) — это стандартный язык разметки для создания веб-страниц. Он определяет структуру и содержание веб-страницы.</p>
+      
+      <h3>Основные понятия:</h3>
+      <ul>
+        <li><strong>Теги</strong> - основные строительные блоки HTML, заключенные в угловые скобки (<code>&lt;&gt;</code>)</li>
+        <li><strong>Элементы</strong> - теги с содержимым (например, <code>&lt;p&gt;Текст&lt;/p&gt;</code>)</li>
+        <li><strong>Атрибуты</strong> - дополнительные параметры элементов (например, <code>&lt;a href="..."&gt;</code>)</li>
+      </ul>
+      
+      <h2>Структура HTML-документа</h2>
+      <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="ru"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Заголовок страницы&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Мой первый заголовок&lt;/h1&gt;
+  &lt;p&gt;Мой первый абзац.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      
+      <div class="note">
+        <strong>Примечание:</strong> Все HTML-документы должны начинаться с декларации <code>&lt;!DOCTYPE html&gt;</code>.
+      </div>
+      
+      <h2>Основные HTML-теги</h2>
+      <table>
+        <tr>
+          <th>Тег</th>
+          <th>Описание</th>
+          <th>Пример</th>
+        </tr>
+        <tr>
+          <td><code>&lt;h1&gt;-&lt;h6&gt;</code></td>
+          <td>Заголовки разного уровня</td>
+          <td><code>&lt;h1&gt;Главный заголовок&lt;/h1&gt;</code></td>
+        </tr>
+        <tr>
+          <td><code>&lt;p&gt;</code></td>
+          <td>Абзац</td>
+          <td><code>&lt;p&gt;Это абзац текста.&lt;/p&gt;</code></td>
+        </tr>
+        <tr>
+          <td><code>&lt;a&gt;</code></td>
+          <td>Ссылка</td>
+          <td><code>&lt;a href="https://example.com"&gt;Ссылка&lt;/a&gt;</code></td>
+        </tr>
+        <tr>
+          <td><code>&lt;img&gt;</code></td>
+          <td>Изображение</td>
+          <td><code>&lt;img src="image.jpg" alt="Описание"&gt;</code></td>
+        </tr>
+        <tr>
+          <td><code>&lt;ul&gt;, &lt;ol&gt;, &lt;li&gt;</code></td>
+          <td>Списки</td>
+          <td><code>&lt;ul&gt;&lt;li&gt;Пункт 1&lt;/li&gt;&lt;/ul&gt;</code></td>
+        </tr>
+        <tr>
+          <td><code>&lt;div&gt;</code></td>
+          <td>Блочный контейнер</td>
+          <td><code>&lt;div&gt;Блок содержимого&lt;/div&gt;</code></td>
+        </tr>
+      </table>
+      
+      <h2>HTML-атрибуты</h2>
+      <p>Атрибуты предоставляют дополнительную информацию об элементах:</p>
+      <ul>
+        <li><code>href</code> - указывает URL для ссылок</li>
+        <li><code>src</code> - указывает путь к изображению</li>
+        <li><code>alt</code> - альтернативный текст для изображений</li>
+        <li><code>class</code> - определяет класс для CSS</li>
+        <li><code>id</code> - уникальный идентификатор элемента</li>
+      </ul>
+      
+      <h2>Формы в HTML</h2>
+      <p>Формы используются для сбора пользовательского ввода:</p>
+      <pre><code>&lt;form action="/submit" method="post"&gt;
+  &lt;label for="name"&gt;Имя:&lt;/label&gt;
+  &lt;input type="text" id="name" name="name"&gt;
+  
+  &lt;label for="email"&gt;Email:&lt;/label&gt;
+  &lt;input type="email" id="email" name="email"&gt;
+  
+  &lt;input type="submit" value="Отправить"&gt;
+&lt;/form&gt;</code></pre>
+      
+      <button id="start-quiz-btn">Начать викторину</button>
+    </div>
+
+    <div id="quiz-section" class="quiz-section" style="display: none;">
+      <h2>Проверьте свои знания HTML</h2>
+      <div class="progress">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
+      
+      <div id="question-1" class="question">
+        <p>1. Какой тег используется для создания заголовка самого высокого уровня?</p>
+        <div class="options">
+          <div class="option" data-correct="true">&lt;h1&gt;</div>
+          <div class="option">&lt;head&gt;</div>
+          <div class="option">&lt;header&gt;</div>
+        </div>
+        <div class="explanation">Тег &lt;h1&gt; используется для заголовков самого высокого уровня (Heading 1). Теги &lt;head&gt; и &lt;header&gt; имеют другое назначение.</div>
+      </div>
+      
+      <div id="question-2" class="question">
+        <p>2. Какой атрибут обязателен для тега &lt;img&gt;?</p>
+        <div class="options">
+          <div class="option">href</div>
+          <div class="option" data-correct="true">src</div>
+          <div class="option">link</div>
+        </div>
+        <div class="explanation">Атрибут src (source) обязателен для тега &lt;img&gt; и указывает путь к изображению. Атрибут href используется для ссылок (&lt;a&gt;).</div>
+      </div>
+      
+      <div id="question-3" class="question">
+        <p>3. Какой тег используется для создания абзаца?</p>
+        <div class="options">
+          <div class="option">&lt;br&gt;</div>
+          <div class="option" data-correct="true">&lt;p&gt;</div>
+          <div class="option">&lt;div&gt;</div>
+        </div>
+        <div class="explanation">Тег &lt;p&gt; создает абзац. &lt;br&gt; - перенос строки, &lt;div&gt; - блочный контейнер.</div>
+      </div>
+      
+      <div id="question-4" class="question">
+        <p>4. Какой тег должен быть первым в HTML-документе?</p>
+        <div class="options">
+          <div class="option" data-correct="true">&lt;!DOCTYPE html&gt;</div>
+          <div class="option">&lt;html&gt;</div>
+          <div class="option">&lt;head&gt;</div>
+        </div>
+        <div class="explanation">Декларация &lt;!DOCTYPE html&gt; должна быть первой в документе и указывает браузеру, что это HTML5 документ.</div>
+      </div>
+      
+      <div id="question-5" class="question">
+        <p>5. Какой атрибут используется для создания гиперссылки?</p>
+        <div class="options">
+          <div class="option">src</div>
+          <div class="option" data-correct="true">href</div>
+          <div class="option">link</div>
+        </div>
+        <div class="explanation">Атрибут href (Hypertext Reference) используется в теге &lt;a&gt; для создания гиперссылок.</div>
+      </div>
+      
+      <div id="result" class="result">
+        <h3>Ваш результат: <span id="score">0</span>/5</h3>
+        <p>Оценка: <span id="grade">1</span>/10</p>
+        <button id="restart-btn">Пройти викторину снова</button>
+      </div>
+      
+      <button id="next-btn" style="display: none;">Следующий вопрос</button>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const startBtn = document.getElementById('start-quiz-btn');
+      const tutorialSection = document.getElementById('tutorial-section');
+      const quizSection = document.getElementById('quiz-section');
+      const questions = document.querySelectorAll('.question');
+      const options = document.querySelectorAll('.option');
+      const nextBtn = document.getElementById('next-btn');
+      const resultDiv = document.getElementById('result');
+      const progressBar = document.getElementById('progress-bar');
+      const restartBtn = document.getElementById('restart-btn');
+      
+      let currentQuestion = 0;
+      let score = 0;
+      const totalQuestions = questions.length;
+      
+      // Начало викторины
+      startBtn.addEventListener('click', function() {
+        tutorialSection.style.display = 'none';
+        quizSection.style.display = 'block';
+        showQuestion(currentQuestion);
+        updateProgress();
+      });
+      
+      // Показ текущего вопроса
+      function showQuestion(index) {
+        questions.forEach(q => q.classList.remove('active'));
+        questions[index].classList.add('active');
+        nextBtn.style.display = 'none';
+      }
+      
+      // Обновление прогресс-бара
+      function updateProgress() {
+        const progress = ((currentQuestion) / totalQuestions) * 100;
+        progressBar.style.width = `${progress}%`;
+      }
+      
+      // Обработка выбора ответа
+      options.forEach(option => {
+        option.addEventListener('click', function() {
+          if (this.dataset.correct === "true") {
+            this.classList.add('correct');
+            score++;
+          } else {
+            this.classList.add('incorrect');
+            // Показываем правильный ответ
+            const correctOption = this.parentElement.querySelector('[data-correct="true"]');
+            correctOption.classList.add('correct');
+          }
+          
+          // Блокируем все варианты
+          this.parentElement.querySelectorAll('.option').forEach(opt => {
+            opt.style.pointerEvents = 'none';
+          });
+          
+          // Показываем объяснение
+          this.parentElement.nextElementSibling.style.display = 'block';
+          
+          // Показываем кнопку "Далее"
+          nextBtn.style.display = 'block';
+        });
+      });
+      
+      // Следующий вопрос
+      nextBtn.addEventListener('click', function() {
+        currentQuestion++;
+        
+        if (currentQuestion < totalQuestions) {
+          showQuestion(currentQuestion);
+          updateProgress();
+        } else {
+          showResult();
+        }
+      });
+      
+      // Показ результата
+      function showResult() {
+        document.querySelectorAll('.question').forEach(q => q.style.display = 'none');
+        document.getElementById('score').textContent = score;
+        document.getElementById('grade').textContent = Math.round((score / totalQuestions) * 10);
+        resultDiv.style.display = 'block';
+        progressBar.style.width = '100%';
+      }
+      
+      // Перезапуск викторины
+      restartBtn.addEventListener('click', function() {
+        currentQuestion = 0;
+        score = 0;
+        
+        // Сброс всех ответов
+        options.forEach(opt => {
+          opt.classList.remove('correct', 'incorrect');
+          opt.style.pointerEvents = 'auto';
+        });
+        
+        document.querySelectorAll('.explanation').forEach(exp => {
+          exp.style.display = 'none';
+        });
+        
+        resultDiv.style.display = 'none';
+        showQuestion(currentQuestion);
+        updateProgress();
+        tutorialSection.style.display = 'block';
+        quizSection.style.display = 'none';
+        window.scrollTo(0, 0);
+      });
+    });
+  </script>
 </body>
 </html>
